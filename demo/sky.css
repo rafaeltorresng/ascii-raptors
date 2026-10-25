@@ -1,0 +1,111 @@
+:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color-scheme: dark;
+  --bg: #0b0b0c;
+  --fg: #e7e5e0;
+  --muted: #a09c99;
+  --line: #29282b;
+  --accent: #c8adff;
+  background: var(--bg);
+  color: var(--fg);
+  font-synthesis: none;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #d4e3f0;
+  --fg: #1c2430;
+  --muted: #3d4c5e;
+  --line: #b7c6d6;
+  --accent: #5c3d96;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+main {
+  margin: 0;
+  height: 100%;
+}
+body {
+  background: var(--bg);
+  overflow: hidden;
+}
+button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+#collection {
+  height: 100svh;
+}
+#sky {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sky-actions {
+  position: fixed;
+  z-index: 2;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+}
+.sky-actions button {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  color: var(--fg);
+}
+:root[data-theme='light'] .sky-actions button {
+  background: rgba(244, 248, 252, 0.88);
+  box-shadow: inset 0 0 0 1px #3d4c5e;
+}
+#sky-symbol {
+  color: var(--accent);
+  font-size: 16px;
+}
+.theme-button {
+  font-size: 20px;
+}
+.error-note,
+.no-script {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  font-size: 13px;
+}
+[hidden] {
+  display: none !important;
+}

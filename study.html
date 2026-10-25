@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Três aves de rapina, três maneiras de voar. Estudos autorais de anatomia e movimento em ASCII."
+    />
+    <title>ascii-raptors — um estudo do voo</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='12' width='64' height='64' fill='%230b0b0c'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='36' text-anchor='middle' fill='%23d4bcff'%3E^%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#controls">Ir aos controles</a>
+    <header class="masthead">
+      <a class="wordmark" href="./index.html"
+        ><span aria-hidden="true">⟨</span> ascii-raptors <span aria-hidden="true">⟩</span></a
+      >
+      <nav class="demo-nav" aria-label="Navegação principal">
+        <a href="./index.html">Coleção</a><a href="./study.html" aria-current="page">Estudos</a>
+      </nav>
+      <button id="theme" class="theme-button" aria-label="Usar tema claro" title="Alternar tema">
+        ◐
+      </button>
+    </header>
+    <main>
+      <section class="study" aria-labelledby="title">
+        <fieldset class="species-selector">
+          <legend class="sr-only">Espécie em observação</legend>
+          <label
+            ><input type="radio" name="species" value="swallow-tailed-kite" checked /><span
+              class="species-index"
+              >01</span
+            ><span>Gavião-tesoura</span></label
+          >
+          <label
+            ><input type="radio" name="species" value="golden-eagle" /><span class="species-index"
+              >02</span
+            ><span>Águia-real</span></label
+          >
+          <label
+            ><input type="radio" name="species" value="peregrine-falcon" /><span
+              class="species-index"
+              >03</span
+            ><span>Falcão-peregrino</span></label
+          >
+        </fieldset>
+        <p class="sr-only" id="species-announcement" aria-live="polite"></p>
+        <div class="study-heading">
+          <div>
+            <p class="eyebrow" id="scientific-name">ELANOIDES FORFICATUS</p>
+            <h1 id="title">Gavião-tesoura<span>.</span></h1>
+          </div>
+          <p class="intro">
+            Entre o gesto e o glifo.<br />
+            Geometria autoral. Movimento procedural.
+          </p>
+        </div>
+        <figure class="specimen">
+          <div class="stage" id="stage">
+            <div class="stage-label" aria-hidden="true">
+              <span id="specimen-number">01</span>
+              <span id="english-name">SWALLOW-TAILED KITE</span>
+            </div>
+            <canvas
+              id="raptor"
+              role="img"
+              aria-label="Gavião-tesoura em voo. Asas longas e pontudas, cabeça e ventre claros e cauda preta profundamente bifurcada. Use os controles após a imagem para pausar ou observar outras poses."
+            ></canvas>
+            <div class="stage-foot" aria-hidden="true">
+              <span id="flight-label">PLANEIO & CURVAS</span><span>DESENHADO EM ASCII</span>
+            </div>
+            <noscript
+              ><p>
+                Ative JavaScript para ver a animação. O gavião-tesoura tem asas longas e pontudas e
+                cauda profundamente bifurcada.
+              </p></noscript
+            >
+          </div>
+          <figcaption class="sr-only" id="scene-description">
+            Estudo procedural autoral. Uma câmera acompanha a ave enquanto ela plana, inclina as
+            asas nas curvas e alterna para breves batidas.
+          </figcaption>
+        </figure>
+        <div class="toolbar" id="controls" tabindex="-1">
+          <button id="play" class="play-button" aria-label="Pausar animação">
+            <span id="play-symbol" aria-hidden="true">Ⅱ</span><span id="play-text">Pausar</span>
+          </button>
+          <fieldset class="mode-selector">
+            <legend class="sr-only">Comportamento de voo</legend>
+            <label
+              ><input type="radio" name="flight" value="soar" checked /><span
+                >Voo livre</span
+              ></label
+            >
+            <label><input type="radio" name="flight" value="glide" /><span>Planeio</span></label>
+            <label><input type="radio" name="flight" value="flap" /><span>Batidas</span></label>
+          </fieldset>
+          <label class="select-label"
+            >Perspectiva
+            <select id="view">
+              <option value="oblique">Oblíqua</option>
+              <option value="ventral">Ventral</option>
+              <option value="dorsal">Dorsal</option>
+              <option value="profile">Perfil</option>
+            </select></label
+          >
+          <label class="select-label detail-label"
+            >Caracteres
+            <select id="detail">
+              <option value="fine">Finos</option>
+              <option value="balanced" selected>Médios</option>
+              <option value="coarse">Grandes</option>
+            </select></label
+          >
+        </div>
+        <p class="motion-note" id="motion-note" hidden>
+          Movimento reduzido ativo. Reproduza apenas se quiser.
+        </p>
+        <p class="error-note" id="error-note" role="alert" hidden></p>
+        <details class="inspection" id="inspection">
+          <summary>Inspecionar o estudo <span aria-hidden="true">+</span></summary>
+          <div class="inspection-grid">
+            <label
+              >Tempo <output id="time-label" aria-live="off">0.0 s</output
+              ><input
+                id="time"
+                type="range"
+                min="0"
+                max="40"
+                step="0.02"
+                value="0"
+                aria-label="Instante do voo, em segundos"
+            /></label>
+            <label
+              >Enquadramento <output id="scale-label" aria-live="off">100%</output
+              ><input
+                id="scale"
+                type="range"
+                min="0.6"
+                max="1.3"
+                step="0.01"
+                value="1"
+                aria-label="Escala da ave"
+            /></label>
+            <label
+              >Construção
+              <select id="representation">
+                <option value="articulated">Articulada · 3D → ASCII</option>
+                <option value="flat">Comparação · plana 2D</option>
+                <option value="silhouette">Inspeção · silhueta ASCII</option>
+              </select></label
+            >
+          </div>
+          <div class="inspection-foot">
+            <output id="metrics" aria-live="off">Aguardando amostras…</output>
+            <div>
+              <button id="export" class="text-button">Salvar quadro ↗</button
+              ><button id="record" class="text-button">Gravar 8 s ↗</button>
+            </div>
+          </div>
+          <p class="caption">
+            A construção plana remove profundidade e inclinação lateral para comparação. As
+            frequências e curvas são escolhas de animação, não medições biológicas.
+          </p>
+        </details>
+      </section>
+      <section class="poses-section" aria-labelledby="poses-title">
+        <div class="section-heading">
+          <h2 id="poses-title">As formas do voo.</h2>
+          <p>Escolha uma pose para observar.</p>
+        </div>
+        <div class="pose-grid" id="poses"></div>
+      </section>
+      <section class="notes" id="notes" aria-labelledby="notes-title">
+        <div>
+          <p class="eyebrow">NOTAS DE CAMPO</p>
+          <h2 id="notes-title">
+            Feito de letras.<br />
+            Guiado pela anatomia.
+          </h2>
+        </div>
+        <div>
+          <p id="species-story">
+            Asas estreitas, penas sobrepostas e uma cauda que desenha uma tesoura no ar. A
+            identidade deste gavião está na relação entre essas formas — e na maneira como elas se
+            movem juntas.
+          </p>
+          <p>
+            Geometria e animação autorais. Sem imagens da ave, vídeos ou modelos externos no
+            renderizador. Cada marca visível na ave é um caractere ASCII desenhado em Canvas.
+          </p>
+          <a
+            id="species-reference"
+            href="https://www.allaboutbirds.org/guide/Swallow-tailed_Kite/id"
+            target="_blank"
+            rel="noreferrer"
+            >Conheça a espécie no Cornell Lab ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>ascii-raptors <span class="muted">/ 1.0 RC</span></span
+      ><span>Um projeto de Rafael Torres · MIT</span>
+    </footer>
+    <script type="module" src="./demo/main.ts"></script>
+  </body>
+</html>

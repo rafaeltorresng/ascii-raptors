@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="Cinco aves de rapina em voo. Geometria autoral, plumagem em cor e caracteres ASCII."
+    />
+    <title>ASCII Raptors</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='12' width='64' height='64' fill='%230b0b0c'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='36' text-anchor='middle' fill='%23d4bcff'%3E^%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./demo/sky.css" />
+  </head>
+  <body>
+    <h1 class="sr-only">ASCII Raptors</h1>
+    <main id="collection">
+      <canvas
+        id="sky"
+        role="img"
+        aria-label="Gavião-tesoura, águia-real, falcão-peregrino, águia-careca e condor-da-califórnia em voo, desenhados com caracteres ASCII."
+      ></canvas>
+      <div class="sky-actions">
+        <button id="sky-play" type="button" aria-label="Pausar voo">
+          <span id="sky-symbol" aria-hidden="true">Ⅱ</span>
+        </button>
+        <button id="theme" class="theme-button" type="button" aria-label="Usar tema claro">
+          ◐
+        </button>
+      </div>
+      <p class="error-note" id="error-note" role="alert" hidden></p>
+      <noscript><p class="no-script">A animação precisa de JavaScript.</p></noscript>
+    </main>
+    <script type="module" src="./demo/sky.ts"></script>
+  </body>
+</html>
