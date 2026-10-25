@@ -12,6 +12,8 @@ Keep the library framework-independent and preserve each bird's identity. The fi
 
 Do not regenerate `tests/fixtures/` or replace `docs/reference/` just to make checks pass. These frozen project-authored builds, numerical samples and recordings protect the approved visual behavior. Investigate differences first; an intentional new baseline needs explicit visual review and must preserve the previous reference.
 
+Numerical regressions compare the current model against the checksum-protected frozen executable in the same runtime. Archived JSON fingerprints can differ across CPU/OS math implementations; do not round production output, relax comparisons or rewrite fixtures to address that drift.
+
 Scene movement belongs in the demo, rather than in the library's anatomical pose functions. The scene's material/compositing layer is also distinct from the studies. Avoid full-canvas pixel readbacks in the animation loop, per-frame mesh construction and unbounded caches.
 
 Only contribute original or explicitly licensed code and assets. Record attribution and license boundaries in `docs/PROVENANCE.md`. Do not commit reference photos, recordings of third-party sites, secrets, builds, caches or large debug-capture batches. Keep performance and anatomical claims proportional to the checks actually performed.

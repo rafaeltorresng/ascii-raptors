@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { getSpecies } from '../src/species.ts';
+import { approvedSpecies } from './approved-models.ts';
 
 const reference = JSON.parse(
   readFileSync(new URL('./fixtures/approved-raptors-v0.2.json', import.meta.url), 'utf8'),
@@ -12,14 +13,23 @@ for (const approved of reference.species) {
   test(`${approved.id}: approved anatomy, cameras and authored poses remain frozen`, () => {
     const species = getSpecies(approved.id),
       mesh = species.create();
-    assert.equal(hash(JSON.stringify(mesh)), approved.meshSHA256);
+    const original = approvedSpecies(approved.id);
+    const approvedMesh = original.create();
+    // Exact executable comparison within one runtime avoids cross-platform
+    // floating-point drift in the archived JSON fingerprints.
+    assert.deepEqual(mesh, approvedMesh);
     assert.deepEqual(species.framing, approved.framing);
     assert.deepEqual(species.studies, approved.studies);
     for (const frame of approved.frames) {
       const pose = species.flight(frame.time, frame.mode, frame.seed);
-      assert.equal(JSON.stringify(pose), JSON.stringify(frame.pose));
+      const approvedPose = original.flight(frame.time, frame.mode, frame.seed);
+      assert.equal(JSON.stringify(pose), JSON.stringify(approvedPose));
       const positions = species.transform(mesh, pose).positions;
-      assert.equal(hash(new Uint8Array(positions.buffer)), frame.geometrySHA256);
+      const approvedPositions = original.transform(approvedMesh, approvedPose).positions;
+      assert.equal(
+        hash(new Uint8Array(positions.buffer)),
+        hash(new Uint8Array(approvedPositions.buffer)),
+      );
     }
   });
 }

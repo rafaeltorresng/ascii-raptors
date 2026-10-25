@@ -1,12 +1,14 @@
 # Validation and known limitations
 
-Publication preparation: October 25, 2026. The approved runtime source, HTML/CSS and frozen fixtures were preserved byte for byte. Changes in this preparation concern documentation, repository organization, development tooling and one test-only TypeScript annotation exposed by checking all tests.
+Publication preparation: October 25, 2026. The approved runtime source, HTML/CSS and frozen fixtures were preserved byte for byte. Changes in this preparation concern documentation, repository organization, development tooling, a test-only TypeScript annotation exposed by checking all tests, and portable comparisons against the frozen reference executables.
 
 ## Command-line checks
 
 The suite contains **53 Node tests** covering mesh/pose determinism, transforms, framing, species identity, original reference checksums, plumage, atmospheric data and two minutes of scene routes in four viewport shapes. Lint uses the recommended TypeScript ESLint rules. Strict typechecking now includes every TypeScript test and browser harness. `npm run verify` runs lint, formatting, tests and the complete demo/library build; `npm run pack:check` inspects the package without publishing it.
 
 CI runs those command-line checks on Ubuntu with Node 22 and 24. It does not run a browser, deploy the demo, publish a package or create a release. Local execution used Node 24.11.0/npm 11.6.1; remote CI results should be checked on the commit under review rather than inferred from the workflow definition.
+
+The first Ubuntu CI run exposed four false regressions: platform-dependent math differed in the last floating-point digits from the macOS JSON snapshots. Model tests now compare mesh values, poses and Float32 geometry exactly against the checksum-protected original executables in the same runtime. The original numerical snapshots remain untouched; no tolerance, platform skip, runtime change or baseline regeneration was introduced. The kite keeps its original v0.1 pose oracle; its transforms also match the approved three-model build, while the browser harness independently compares the full renderer with v0.1.
 
 ## Browser checks actually completed
 
