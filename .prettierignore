@@ -1,0 +1,6 @@
+node_modules/
+dist/
+docs/evidence/
+package-lock.json
+tests/fixtures/
+docs/reference/

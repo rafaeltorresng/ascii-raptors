@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# These byte-protected regression references must not be normalized.
+tests/fixtures/** -text
+docs/reference/** -text
+docs/media/** -text
