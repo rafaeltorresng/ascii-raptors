@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ASCII Raptors · auditoria da demo</title>
+    <style>
+      body {
+        font: 14px/1.6 system-ui;
+        background: #151515;
+        color: #eee;
+        margin: 0;
+        padding: 24px;
+      }
+      button {
+        font: inherit;
+        padding: 12px;
+        margin-right: 8px;
+      }
+      li {
+        margin: 12px 0;
+      }
+      .pass {
+        color: #a6d5b6;
+      }
+      .fail {
+        color: #ff9e9e;
+      }
+      pre {
+        white-space: pre-wrap;
+        font-size: 12px;
+      }
+      iframe {
+        position: fixed;
+        left: 0;
+        top: 0;
+        border: 0;
+        z-index: -1;
+        opacity: 0.7;
+      }
+      main {
+        max-width: 900px;
+      }
+      a {
+        color: #cfb3ff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="../index.html">← Coleção</a>
+      <h1>Auditoria da demo</h1>
+      <p>
+        Fluxos reais da coleção e dos estudos, teclado estrutural, pausa persistente, fallback e
+        axe-core. Não substitui inspeção com leitor de tela ou um aparelho físico.
+      </p>
+      <button id="run">Executar auditoria</button
+      ><button id="save" disabled>Salvar relatório JSON</button>
+      <ol id="results"></ol>
+      <pre id="result">Aguardando execução.</pre>
+    </main>
+    <script type="module" src="./demo.ts"></script>
+  </body>
+</html>

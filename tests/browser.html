@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ascii-raptors · validação</title>
+    <style>
+      body {
+        font: 14px/1.6 system-ui;
+        background: #161616;
+        color: #eee;
+        padding: 24px;
+        margin: 0;
+      }
+      main {
+        max-width: 850px;
+      }
+      a {
+        color: #cfb3ff;
+      }
+      button {
+        font: inherit;
+        padding: 12px 20px;
+        cursor: pointer;
+      }
+      li {
+        margin: 12px 0;
+      }
+      pre {
+        white-space: pre-wrap;
+        font: 12px/1.6 monospace;
+      }
+      #fixture {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.8;
+      }
+      #fixture canvas {
+        display: block;
+      }
+      #result {
+        padding-bottom: 320px;
+      }
+      .pass {
+        color: #a6d5b6;
+      }
+      .fail {
+        color: #ff9e9e;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="/">← Demo</a>
+      <h1>Validação no navegador real</h1>
+      <p>
+        Renderização, ciclo de vida, preferência de movimento, enquadramento e custo de CPU. Os
+        testes de mídia usam uma preferência emulada dentro desta página.
+      </p>
+      <button id="run">Executar validação</button>
+      <button id="save" disabled>Salvar relatório JSON</button>
+      <ol id="results"></ol>
+      <pre id="result" aria-live="polite">Aguardando execução.</pre>
+      <div id="fixture"></div>
+    </main>
+    <script type="module" src="./browser.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ASCII Raptors · movimento</title>
+    <style>
+      body {
+        margin: 0;
+        background: #151515;
+        color: #eee;
+        font: 14px system-ui;
+      }
+      canvas {
+        display: block;
+      }
+      aside {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        background: #222e;
+        padding: 10px;
+        max-width: 90vw;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+        margin: 3px;
+        padding: 5px;
+      }
+      output {
+        display: block;
+      }
+      label {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas aria-label="Cinco aves, rotas e transições de voo"></canvas>
+    <aside>
+      <label>Tempo <input id="time" type="range" min="0" max="120" step=".1" value="0" /></label
+      ><label
+        >Cenário
+        <select id="size">
+          <option value="1440x900">Desktop</option>
+          <option value="390x844">Celular</option>
+          <option value="960x540">Paisagem</option>
+        </select></label
+      ><label
+        >Tema
+        <select id="theme">
+          <option value="dark">Escuro</option>
+          <option value="light">Claro</option>
+        </select></label
+      ><button id="play">Reproduzir</button><button id="capture">Salvar quadro</button
+      ><button id="record">Gravar 18 segundos</button><a id="video" hidden>Salvar vídeo</a
+      ><output></output>
+    </aside>
+    <script type="module" src="../demo/qa/motion.ts"></script>
+  </body>
+</html>

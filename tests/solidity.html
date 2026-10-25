@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ASCII Raptors · solidez diurna</title>
+    <style>
+      body {
+        margin: 0;
+        background: #222;
+        color: white;
+        font: 14px system-ui;
+      }
+      canvas {
+        display: block;
+      }
+      aside {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        padding: 10px;
+        background: #222e;
+      }
+      button,
+      select {
+        font: inherit;
+        padding: 6px;
+      }
+      output {
+        display: block;
+        max-width: 95vw;
+        max-height: 25vh;
+        overflow: auto;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas aria-label="Cena determinística das cinco aves"></canvas>
+    <aside>
+      <button id="matrix">Validar matriz</button>
+      <button id="cells">Verificar opacidade</button>
+      <button id="dark-cells">Verificar opacidade escura</button>
+      <button id="landing">Abrir landing clara pausada</button>
+      <button id="save" disabled>Salvar relatório</button>
+      <output>Aguardando.</output>
+    </aside>
+    <script type="module" src="../demo/qa/solidity.ts"></script>
+  </body>
+</html>

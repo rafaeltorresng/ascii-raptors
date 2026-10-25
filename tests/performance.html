@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ASCII Raptors · fluidez</title>
+    <style>
+      body {
+        margin: 0;
+        background: #222;
+        color: white;
+        font: 14px system-ui;
+      }
+      canvas {
+        display: block;
+      }
+      aside {
+        position: fixed;
+        inset: auto 8px 8px;
+        background: #222e;
+        padding: 10px;
+      }
+      button {
+        font: inherit;
+        padding: 8px;
+      }
+      output {
+        display: block;
+        white-space: pre-wrap;
+        max-height: 30vh;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas aria-label="Cena sob medição de fluidez"></canvas>
+    <aside>
+      <button id="run">Medir fluidez</button>
+      <button id="save" disabled>Salvar medição</button>
+      <output>Quatro cenários, com aquecimento; mantenha esta aba ativa.</output>
+    </aside>
+    <script type="module" src="../demo/qa/performance.ts"></script>
+  </body>
+</html>

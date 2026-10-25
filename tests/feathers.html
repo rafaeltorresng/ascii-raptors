@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ASCII Raptors · plumagem</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: #202124;
+        color: #eee;
+        font: 14px system-ui;
+        margin: 0;
+        padding: 20px;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      button,
+      select {
+        font: inherit;
+        padding: 8px;
+      }
+      #gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      figure {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #505055;
+        border-radius: 8px;
+      }
+      figcaption {
+        padding: 10px 14px;
+      }
+      canvas {
+        display: block;
+        max-width: 100%;
+        margin: auto;
+      }
+      output {
+        white-space: pre-wrap;
+      }
+      @media (max-width: 700px) {
+        #gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Plumagem · comparação dos temas</strong>
+      <label
+        >Instante
+        <select id="time">
+          <option>1</option>
+          <option>4</option>
+          <option>9</option>
+          <option>15</option>
+          <option>27</option>
+        </select></label
+      >
+      <label
+        >Tamanho
+        <select id="size">
+          <option value="560">560 px</option>
+          <option value="240">240 px</option>
+        </select></label
+      >
+      <button id="save">Salvar evidências</button>
+      <button id="matrix">Validar 100 quadros</button>
+      <label
+        >Ave
+        <select id="species">
+          <option value="all">Todas</option>
+          <option value="golden-eagle">Águia-real</option>
+          <option value="swallow-tailed-kite">Gavião-tesoura</option>
+          <option value="peregrine-falcon">Peregrino</option>
+          <option value="bald-eagle">Águia-careca</option>
+          <option value="california-condor">Condor</option>
+        </select></label
+      >
+      <button id="play">Reproduzir</button>
+      <output>Pronto.</output>
+    </header>
+    <main id="gallery"></main>
+    <script type="module" src="../demo/qa/feathers.ts"></script>
+  </body>
+</html>
