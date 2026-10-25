@@ -13,6 +13,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src", "demo", "tests/**/*.ts", "vite.config.ts", "vite.lib.config.ts"],
+  "include": ["src", "demo", "scripts", "tests/**/*.ts", "vite.config.ts", "vite.lib.config.ts"],
   "exclude": ["tests/fixtures"]
 }
