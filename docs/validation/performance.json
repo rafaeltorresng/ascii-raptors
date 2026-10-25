@@ -1,0 +1,63 @@
+{
+  "phase": "dark-opacity",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "dpr": 2,
+  "results": [
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "hidden": false,
+      "frames": 93,
+      "fps": 28.75449288951399,
+      "renderMedianMs": 14.599999999627471,
+      "renderP95Ms": 15.099999999627471,
+      "intervalMedianMs": 33.399999999999636,
+      "intervalP95Ms": 41.70000000000027,
+      "readsPerFrame": 0,
+      "transformsPerFrame": 4.946236559139785
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "hidden": false,
+      "frames": 94,
+      "fps": 29.057051802786972,
+      "renderMedianMs": 14.899999999441206,
+      "renderP95Ms": 15.599999999627471,
+      "intervalMedianMs": 33.30000000000018,
+      "intervalP95Ms": 41.80000000000018,
+      "readsPerFrame": 0,
+      "transformsPerFrame": 4.946808510638298
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "hidden": false,
+      "frames": 74,
+      "fps": 22.992125984251967,
+      "renderMedianMs": 8,
+      "renderP95Ms": 8.599999999627471,
+      "intervalMedianMs": 41.70000000000073,
+      "intervalP95Ms": 50.399999999999636,
+      "readsPerFrame": 0,
+      "transformsPerFrame": 4.9324324324324325
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "hidden": false,
+      "frames": 75,
+      "fps": 23.432552248258393,
+      "renderMedianMs": 8,
+      "renderP95Ms": 9.400000000372529,
+      "intervalMedianMs": 41.70000000000073,
+      "intervalP95Ms": 50,
+      "readsPerFrame": 0,
+      "transformsPerFrame": 5
+    }
+  ]
+}
