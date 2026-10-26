@@ -2,6 +2,8 @@
 
 Birds of prey built from articulated geometry, animated procedurally, and drawn with real ASCII characters on Canvas 2D. TypeScript, no runtime dependencies, no framework required.
 
+**[Explore the live sky →](https://rafaeltorres.dev/ascii-raptors/)** · [Open the individual studies](https://rafaeltorres.dev/ascii-raptors/study.html)
+
 ![Five birds in the shared sky, dark theme](docs/media/sky-dark.jpg)
 
 [Light theme](docs/media/sky-light.jpg) · [Architecture](docs/ARCHITECTURE.md) · [Validation and limitations](docs/VALIDATION.md)
@@ -41,6 +43,7 @@ npm run typecheck     # strict TypeScript checks
 npm test              # geometry, pose, composition and regression contracts
 npm run build         # demo + ESM library + declarations
 npm run verify        # lint, formatting, tests and build
+npm run check:demo    # validate the built demo's assets and subpath navigation
 npm run pack:check    # inspect the npm package file list without publishing
 ```
 
@@ -92,6 +95,14 @@ The Node suite protects the approved models, pose samples, transformed geometry 
 - `/tests/performance.html`: warmed-up rendering measurements without per-frame readbacks.
 
 These harnesses are development tools and are excluded from the demo build. GitHub Actions runs the command-line checks on Node 22 and 24; browser and physical-device checks are not automated by that workflow.
+
+## Demo deployment
+
+GitHub Pages serves the existing two-page Vite build. On a push to `main`, both Node jobs must pass before deployment. The Node 24 job uploads only the verified `dist/demo/` output; the deployment job publishes that exact artifact. Pull requests and other branches never deploy. The workflow does not create commits, publish npm packages or modify the portfolio.
+
+The relative `base: './'` keeps assets and study navigation inside `/ascii-raptors/`. `npm run check:demo` checks the generated entry points and their references at both a root URL and a project subpath. To inspect a deployment, open the [Actions run](https://github.com/rafaeltorresng/ascii-raptors/actions/workflows/ci.yml); it can also be rerun manually on `main`.
+
+The Pages project inherits this account's existing `rafaeltorres.dev` domain, so the live URL uses that domain. Its build, artifact and repository are independent of the portfolio. Hosting uses the [official GitHub Pages workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), with deployment permissions limited to the deploy job.
 
 ## Originality and license
 

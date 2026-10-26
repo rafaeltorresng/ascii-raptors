@@ -27,3 +27,5 @@ The compositor caches atlas grading and colors. It does not read the full render
 `AsciiRaptor` is the exported browser host for one original species. It handles size/DPR, explicit pause, reduced motion and suspension. The five-bird `FlightScene` is demo implementation, not an additional package export. Bald eagle and condor reuse the golden-eagle rig; their appearance does not constitute an independent anatomical model.
 
 The build produces `dist/lib/` (ESM and declarations) and `dist/demo/` (two static HTML entries and their assets). QA pages and diagnostic tools are not included in the public demo output. No framework, remote font, image asset, runtime model download or network service is required for rendering.
+
+GitHub Pages publishes only `dist/demo/`, reusing the artifact built and checked by the Node 24 CI job after both Node 22 and 24 verification jobs pass. Relative asset and navigation URLs support the project's `/ascii-raptors/` path without a second implementation or a routing fallback.

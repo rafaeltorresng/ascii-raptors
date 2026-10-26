@@ -6,7 +6,7 @@ Publication preparation: October 25, 2026. The approved runtime source, HTML/CSS
 
 The suite contains **53 Node tests** covering mesh/pose determinism, transforms, framing, species identity, original reference checksums, plumage, atmospheric data and two minutes of scene routes in four viewport shapes. Lint uses the recommended TypeScript ESLint rules. Strict typechecking now includes every TypeScript test and browser harness. `npm run verify` runs lint, formatting, tests and the complete demo/library build; `npm run pack:check` inspects the package without publishing it.
 
-CI runs those command-line checks on Ubuntu with Node 22 and 24. It does not run a browser, deploy the demo, publish a package or create a release. Local execution used Node 24.11.0/npm 11.6.1; remote CI results should be checked on the commit under review rather than inferred from the workflow definition.
+CI runs those command-line checks on Ubuntu with Node 22 and 24, then checks the built demo's asset references and navigation under `/` and `/ascii-raptors/`. On `main`, after both jobs pass, GitHub Pages deploys the exact Node 24 demo artifact. Pull requests never deploy. The workflow does not run a browser, publish npm packages or create releases. Local execution used Node 24.11.0/npm 11.6.1; remote CI results should be checked on the commit under review rather than inferred from the workflow definition.
 
 The first Ubuntu CI run exposed four false regressions: platform-dependent math differed in the last floating-point digits from the macOS JSON snapshots. Model tests now compare mesh values, poses and Float32 geometry exactly against the checksum-protected original executables in the same runtime. The original numerical snapshots remain untouched; no tolerance, platform skip, runtime change or baseline regeneration was introduced. The kite keeps its original v0.1 pose oracle; its transforms also match the approved three-model build, while the browser harness independently compares the full renderer with v0.1.
 
@@ -19,6 +19,12 @@ Chromium 155 on macOS, DPR 2:
 - [50 dark](validation/opacity-dark.json) and [50 light](validation/opacity-light.json) opacity frames from the approved compositor: five birds, five instants, 240 px/DPR 1 and 480 px/DPR 2. Interior cells were opaque, glyph texture remained distinguishable and there was no paint outside emitted cells.
 
 The fresh browser/lifecycle and interface checks were rerun during publication preparation. The opacity reports and the following performance sample are retained from the preceding approved visual revision; they were not relabeled as new measurements.
+
+### Public demo checks
+
+The HTTPS Pages deployment was inspected in Chromium at 1280 × 720 and 390 × 844. Keyboard pause/theme activation, pause and theme persistence after reload, all three study selections, a pose preset and return navigation worked under `/ascii-raptors/`. The narrow landing and study had no horizontal overflow; landing controls remained 44 × 44 px. No console errors were observed in this session. This was a browser viewport check, not a physical-phone or screen-reader test.
+
+All seven published HTML/CSS/JavaScript files returned HTTP 200 and matched the approved local build's SHA-256 checksums exactly. The three species-specific study URLs also returned HTTP 200. These deployment checks do not replace the remaining cross-browser, device or accessibility work below.
 
 ## Performance evidence
 
